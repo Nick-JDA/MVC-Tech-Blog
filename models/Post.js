@@ -11,8 +11,11 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    comment: {
+    name: {
       type: DataTypes.STRING,
+    },
+    content: {
+        type: DataTypes.STRING,
     },
     user_id: {
       type: DataTypes.INTEGER,
