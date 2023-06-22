@@ -65,7 +65,6 @@ router.get('/post/update/:id', async (req, res) => {
       ],
     });
     const post = postData.get({ plain: true });
-    console.log("post:", post);
     res.render('updatepost', {
       ...post,
       logged_in: req.session.logged_in
