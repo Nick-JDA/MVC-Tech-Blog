@@ -50,6 +50,32 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
+router.get('/post/update/:id', async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User, 
+          attributes: ['name'],
+        },
+        {
+          model: Comment,
+          include: {model: User }
+        }
+      ],
+    });
+    const post = postData.get({ plain: true });
+    console.log("post:", post);
+    res.render('updatepost', {
+      ...post,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID

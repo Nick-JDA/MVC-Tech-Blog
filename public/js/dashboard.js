@@ -22,23 +22,11 @@ const newFormHandler = async (event) => {
 };
 
 const updateButtonHandler = async (event) => {
-  if (event.target.document.getElementById('update')) {
-    const upId = event.target.getElementById('update');
+  
+    const upId = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/post/${upId}`, {
-      method: 'PUT',
-      body: JSON.stringify({ title, content }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    if (response.ok) {
-      document.replace('/post');
-    } else {
-      alert('You guessed wrong');
-    }
-  }
+    document.location.replace(`/post/update/${upId}`);
+   
 };
 
 const delButtonHandler = async (event) => {
@@ -64,3 +52,7 @@ document
 document
   .querySelector('.project-list')
   .addEventListener('click', delButtonHandler);
+
+document
+  .querySelector('#update')
+  .addEventListener('click', updateButtonHandler);
