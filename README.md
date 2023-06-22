@@ -20,7 +20,7 @@ When a user visits the tech-blog application they are presented with a homepage 
 Github URL:https://github.com/Nick-JDA/MVC-Tech-Blog
 
 
-Deployed site URL:
+Deployed site URL: https://tech-bl0g-s1te-90f6a61c7814.herokuapp.com/
 
 
 
